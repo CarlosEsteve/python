@@ -1,0 +1,654 @@
+{
+  "cells": [
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"HOLA\")"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "HOLA\n"
+        }
+      ],
+      "execution_count": 1,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "m = 2\n",
+        "n = 4\n",
+        "r = (m-n) * 3\n",
+        "r\n",
+        "rr = r/4\n",
+        "rr\n",
+        "c = r//4\n",
+        "resto = r % 4\n",
+        "print(c, resto)"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "-2 2\n"
+        }
+      ],
+      "execution_count": 2,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\"data\" in \"Hola Data mundo\""
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 3,
+          "data": {
+            "text/plain": "False"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 3,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "l1 = [1,2,3]\n",
+        "4 in l1"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 4,
+          "data": {
+            "text/plain": "False"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 4,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\"Hola mundo\" .replace(\"o\",\"x\")\n"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 5,
+          "data": {
+            "text/plain": "'Hxla mundx'"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 5,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "str = \"Hola Mundo! Hola\"\n",
+        "l1 = str.split(\" \")\n",
+        "print(l1)\n",
+        "\"_\".join(l1)\n",
+        "\"_\".join(str.split())\n"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "['Hola', 'Mundo!', 'Hola']\n"
+        },
+        {
+          "output_type": "execute_result",
+          "execution_count": 6,
+          "data": {
+            "text/plain": "'Hola_Mundo!_Hola'"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 6,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "l1=str.split(\" \").count(\"Hola\")\n",
+        "l1\n"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 7,
+          "data": {
+            "text/plain": "2"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 7,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "l1 = [1,2,3,4,5,6,7,8,9,10]\n",
+        "prim = l1[0]\n",
+        "ult = l1[len(l1)-1]\n",
+        "print(prim, ult)\n",
+        "l1[1::2]\n",
+        "#l1[ind_init:ind:final:salto]"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "1 10\n"
+        },
+        {
+          "output_type": "execute_result",
+          "execution_count": 8,
+          "data": {
+            "text/plain": "[2, 4, 6, 8, 10]"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 8,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "l1[1:3]=['a','b']\n",
+        "l1"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 9,
+          "data": {
+            "text/plain": "[1, 'a', 'b', 4, 5, 6, 7, 8, 9, 10]"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 9,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "l1.append(4)\n",
+        "l1"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 10,
+          "data": {
+            "text/plain": "[1, 'a', 'b', 4, 5, 6, 7, 8, 9, 10, 4]"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 10,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "l1 = [1,2,3,4,5,6,7,8,9,10]\n",
+        "l1"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 11,
+          "data": {
+            "text/plain": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 11,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "l1.insert(len(l1),'Hola')\n",
+        "l1"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 12,
+          "data": {
+            "text/plain": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Hola']"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 12,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "l1 = [1,2,3,4,5,6,7,8,9,10]\n",
+        "e1 = l1.pop(2)\n",
+        "e1"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 13,
+          "data": {
+            "text/plain": "3"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 13,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "l1 = [1,2,3]\n",
+        "l2 = ['a','b','c']\n",
+        "\n",
+        "try:\n",
+        "    l1 > l2\n",
+        "except:\n",
+        "    print('Error!!!')\n",
+        "\n",
+        "print('Continua')"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "Error!!!\nContinua\n"
+        }
+      ],
+      "execution_count": 14,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "l1 = [1,2,3,4,5,6,7,8,9,10]\n",
+        "print(min(l1))\n",
+        "print(max(l1))"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "1\n10\n"
+        }
+      ],
+      "execution_count": 15,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "l1 = [1,2,3,4,5,6,7,8,9,10]\n",
+        "l1.index(3,1)"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 16,
+          "data": {
+            "text/plain": "2"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 16,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "t1 = (1,2,3)\n",
+        "t1\n",
+        "type(t1)"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 17,
+          "data": {
+            "text/plain": "tuple"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 17,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "dict1 = {'lunes':1, 'martes':2, 'miercoles':3}\n",
+        "l1 = list(dict1.keys())\n",
+        "l1"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 18,
+          "data": {
+            "text/plain": "['lunes', 'martes', 'miercoles']"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 18,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "vals = set(dict1.values())\n",
+        "vals"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 19,
+          "data": {
+            "text/plain": "{1, 2, 3}"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 19,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "'martes' in dict1.values()"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 20,
+          "data": {
+            "text/plain": "False"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 20,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "'martes' in dict1.keys()"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 21,
+          "data": {
+            "text/plain": "True"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 21,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "dict1['lunes'] = 'primero'\n",
+        "dict1\n",
+        "\n"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 22,
+          "data": {
+            "text/plain": "{'lunes': 'primero', 'martes': 2, 'miercoles': 3}"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 22,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "dict1.get('viernes','No existe')"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 23,
+          "data": {
+            "text/plain": "'No existe'"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 23,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "Lista1 = (input(\"Num1\"), input(\"Num2\"), input(\"Num3\"), input(\"Num4\"))\n",
+        "print(Lista1)\n",
+        "numero = input()\n",
+        "numero in Lista1\n"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "('1', '2', '3', '4')\n"
+        },
+        {
+          "output_type": "execute_result",
+          "execution_count": 24,
+          "data": {
+            "text/plain": "False"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 24,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "horas = int(input('Horas trabajadas'))\n",
+        "precio = float(input('Precio/hora'))\n",
+        "sueldo = horas * precio\n",
+        "sueldo"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 25,
+          "data": {
+            "text/plain": "18576.0"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 25,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "l1 = [1,2,3,4,5,6,7,8,9,10,3,8,18]\n",
+        "s1 = set(l1)\n",
+        "print('Número de elementos diferentes:',len(s1))\n"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "Número de elementos diferentes: 11\n"
+        }
+      ],
+      "execution_count": 26,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Número en lista\n",
+        "list1 = [1,2,3,4,5]\n",
+        "try:\n",
+        "    val = int(input(\"num:\"))\n",
+        "    print('Está:',val in list1)\n",
+        "except:\n",
+        "    print('Debe ser un número!')"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "Está: True\n"
+        }
+      ],
+      "execution_count": 27,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "4# Suledo medio\n",
+        "try:\n",
+        "    horas = int(input('Horas:'))\n",
+        "    pph = float(input('pph:'))\n",
+        "    sa = horas * pph\n",
+        "    smm = sa / 12\n",
+        "    print('Sueldo medio mensual:', smm)\n",
+        "except:\n",
+        "    print('Deben ser números!')"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "Sueldo medio mensual: 1.3333333333333333\n"
+        }
+      ],
+      "execution_count": 28,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Número mayor\n",
+        "txtlista = input('lista separada por \",\":')\n",
+        "lista = txtlista.split(',')\n",
+        "print('El mayor es:',max(lista))"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "El mayor es: 4\n"
+        }
+      ],
+      "execution_count": 29,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Num valores únicos\n",
+        "lista = [1, 2, 3, 4, 5, 4, 3, 2, 1]\n",
+        "s1 = set(lista)\n",
+        "print('Número de elementos diferentes:',len(s1))"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "Número de elementos diferentes: 5\n"
+        }
+      ],
+      "execution_count": 30,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Valor 2º posicion\n",
+        "unDict = {'primero':1, 'segundo': 2, 'tercero':3}\n",
+        "claves = list(unDict.keys());\n",
+        "segundo = unDict.get(claves[1])\n",
+        "print('El segundo:',segundo)"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "El segundo: 2\n"
+        }
+      ],
+      "execution_count": 31,
+      "metadata": {}
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python38-azureml",
+      "language": "python",
+      "display_name": "Python 3.8 - AzureML"
+    },
+    "language_info": {
+      "name": "python",
+      "version": "3.10.11",
+      "mimetype": "text/x-python",
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "pygments_lexer": "ipython3",
+      "nbconvert_exporter": "python",
+      "file_extension": ".py"
+    },
+    "microsoft": {
+      "ms_spell_check": {
+        "ms_spell_check_language": "es"
+      }
+    },
+    "kernel_info": {
+      "name": "python38-azureml"
+    },
+    "nteract": {
+      "version": "nteract-front-end@1.0.0"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 2
+}
