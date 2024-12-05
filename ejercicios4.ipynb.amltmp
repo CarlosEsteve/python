@@ -1,0 +1,316 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# EJERCICIOS 4"
+      ],
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Genera un programa que encuentre el mayor de 3 números en tres variables, usando solo if-elif-else\n",
+        "\n",
+        "n1 = int(input())\n",
+        "n2 = int(input())\n",
+        "n3 = int(input())\n",
+        "print(n1, n2, n3)\n",
+        "\n",
+        "if n1>=n2 and n1>= n3:\n",
+        "    print(n1)\n",
+        "elif n2>=n1 and n2>=n3:\n",
+        "    print(n2)\n",
+        "elif n3>=n1 and n3>=n2:\n",
+        "    print(n3)"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "1 2 3\n3\n"
+        }
+      ],
+      "execution_count": 14,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Extendiende la lógica anterior para una lista de números\n",
+        "\n",
+        "nums = [1, 2, 5, 3, 9]\n",
+        "\n",
+        "mayor = 0\n",
+        "\n",
+        "for num in nums:\n",
+        "    if (num > mayor):\n",
+        "        mayor = num\n",
+        "\n",
+        "print(mayor)\n"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "9\n"
+        }
+      ],
+      "execution_count": null,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Extendiende la lógica antarior para un diccionario: {'john':4, 'Anna': 7, 'Peter': 1, 'Riga': 9}\n",
+        "\n",
+        "dict1 = {'join': 4, 'Anna': 7, 'Peter': 1, 'Riga': 9}\n",
+        "\n",
+        "mayor = 0\n",
+        "\n",
+        "for key, val in dict1.items():\n",
+        "    if(val > mayor):\n",
+        "        mayor = val\n",
+        "\n",
+        "print(mayor)"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "9\n"
+        }
+      ],
+      "execution_count": null,
+      "metadata": {}
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "    # EJERCICIO FISTA VIP\n",
+        "\n",
+        "    - La fiesta VIP de John\n",
+        "John desea realizar una fiesta VIP; pero el año anterior una persona se coló utilizando el mismo nombre de otra. Y por eso John ha decidido este año que el portero pida el número de documento.\n",
+        "El programa deberá tener una lista de dnis aprobados. El portero deberá poder introducir el número de documento de quien solicita entrar a la fiesta y comprobar si existe en la lista. Si está, se muestra un PERMITIDO ENTRAR. Luego debe mostrar cuántas personas de la lista quedan por entrar.\n",
+        "Si no está en la lista, deberá indicar NO PERMITIDO y seguir esperando un nuevo documento.\n",
+        "Cuando se complete la lista, seberá indicar COMPLETADO y salir.\n",
+        "La lista, una vez definida por John, no debe poder modificarse durante el proceso."
+      ],
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "dnis = ('dni1','dni2','dni3')\n",
+        "mutable_dnis = list(dnis)\n",
+        "quedan = len(dnis)\n",
+        "\n",
+        "while quedan:\n",
+        "    aDni = input('dni?')\n",
+        "    if aDni in dnis:\n",
+        "        print('Permitido Entrar:', aDni)\n",
+        "        mutable_dnis.remove(aDni)\n",
+        "        quedan = len(mutable_dnis)\n",
+        "\n",
+        "        if quedan:\n",
+        "            print('Quedan:', quedan)\n",
+        "        else:\n",
+        "            print('Completado')\n",
+        "\n",
+        "    else:\n",
+        "        print('No permitido:', aDni)\n",
+        "\n"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "No permitido: 1111\nNo permitido: 2222\nNo permitido: 5555\nNo permitido: 6666\nPermitido Entrar: dni1\nQuedan: 2\nPermitido Entrar: dni2\nQuedan: 1\nNo permitido: dni4\nPermitido Entrar: dni3\nCompletado\n"
+        }
+      ],
+      "execution_count": 8,
+      "metadata": {}
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "\n",
+        "- Se tiene una lista de alumnos con sus asignaturas y la nota más alta y nota más baja de cada una. \n",
+        "Genera un programa que permita completar y extraer datos estadísticos de la lista de la siguiente manera: \n",
+        "\t1- Completar la nota media de cada alumno por asignatura.\n",
+        "\t2- Obtener la media global por asignatura.\n",
+        "\t3- Obtener la media global por alumno.\n",
+        "\t4- Obtener la media global de todos los alumnos.\n",
+        "\t5- Obtener para un alumno determinado, la nota media.\n",
+        "\t6- Obtener los alumnos con una nota media superior o igual a un número dado (5).\n",
+        "\t7- Salir\n",
+        "Haz que el programa solicite la opción que quieres ejecutar el prompt "
+      ],
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "notas = {\n",
+        "\"Sosanna\": [{'maths': (4, 3)}, {'lang': (5, 5)}], \n",
+        "\"Rosalind\": [{'maths': (8, 6)}, {'lang': (10, 5)}], \n",
+        "\"Gaspar\": [{'maths': (1, 6)}, {'lang': (7, 5)}], \n",
+        "\"Herve\": [{'maths': (2, 5)}, {'lang': (8, 2)}], \n",
+        "\"Jayme\": [{'maths': (5, 1)}, {'lang': (10, 7)}], \n",
+        "\"Dasya\": [{'maths': (5, 3)}, {'lang': (8, 2)}], \n",
+        "\"Christean\": [{'maths': (2, 10)}, {'lang': (3, 6)}], \n",
+        "\"Risa\": [{'maths': (9, 9)}, {'lang': (2, 7)}], \n",
+        "\"Florenza\": [{'maths': (10, 6)}, {'lang': (5, 5)}], \n",
+        "\"Donella\": [{'maths': (10, 3)}, {'lang': (8, 3)}], \n",
+        "\"Cesaro\": [{'maths': (2, 4)}, {'lang': (1, 7)}], \n",
+        "\"Beatrisa\": [{'maths': (9, 2)}, {'lang': (1, 5)}], \n",
+        "\"Thain\": [{'maths': (1, 7)}, {'lang': (6, 3)}], \n",
+        "\"Shaylah\": [{'maths': (6, 7)}, {'lang': (2, 1)}], \n",
+        "\"Anne-marie\": [{'maths': (4, 6)}, {'lang': (4, 3)}], \n",
+        "\"Swen\": [{'maths': (8, 5)}, {'lang': (7, 6)}], \n",
+        "\"Vaclav\": [{'maths': (1, 4)}, {'lang': (9, 10)}], \n",
+        "\"Hermine\": [{'maths': (2, 1)}, {'lang': (8, 1)}], \n",
+        "\"Sybyl\": [{'maths': (10, 2)}, {'lang': (3, 10)}], \n",
+        "\"Ynes\": [{'maths': (6, 10)}, {'lang': (3, 2)}], \n",
+        "\"Antonie\": [{'maths': (9, 3)}, {'lang': (4, 9)}], \n",
+        "\"Trixie\": [{'maths': (9, 10)}, {'lang': (5, 4)}], \n",
+        "\"Mathilde\": [{'maths': (4, 5)}, {'lang': (8, 1)}], \n",
+        "\"Merlina\": [{'maths': (6, 8)}, {'lang': (4, 6)}], \n",
+        "\"Zared\": [{'maths': (1, 9)}, {'lang': (5, 3)}], \n",
+        "\"Brandais\": [{'maths': (3, 3)}, {'lang': (7, 1)}], \n",
+        "\"Reggie\": [{'maths': (10, 2)}, {'lang': (10, 8)}], \n",
+        "\"Burk\": [{'maths': (8, 7)}, {'lang': (5, 5)}], \n",
+        "\"Seymour\": [{'maths': (5, 8)}, {'lang': (8, 3)}], \n",
+        "\"Fergus\": [{'maths': (2, 3)}, {'lang': (5, 5)}], \n",
+        "\"Jeanette\": [{'maths': (1, 5)}, {'lang': (5, 4)}], \n",
+        "\"Arther\": [{'maths': (5, 5)}, {'lang': (9, 5)}], \n",
+        "\"Avictor\": [{'maths': (9, 2)}, {'lang': (8, 5)}], \n",
+        "\"Lynette\": [{'maths': (7, 2)}, {'lang': (10, 6)}], \n",
+        "\"Briano\": [{'maths': (2, 2)}, {'lang': (4, 6)}], \n",
+        "\"Daveta\": [{'maths': (4, 7)}, {'lang': (2, 9)}], \n",
+        "\"Devonne\": [{'maths': (10, 2)}, {'lang': (6, 8)}], \n",
+        "\"Chiarra\": [{'maths': (6, 1)}, {'lang': (4, 3)}], \n",
+        "\"Torrey\": [{'maths': (2, 9)}, {'lang': (1, 3)}], \n",
+        "\"Hattie\": [{'maths': (2, 5)}, {'lang': (7, 2)}], \n",
+        "\"Florenza\": [{'maths': (10, 5)}, {'lang': (4, 4)}], \n",
+        "\"Veronica\": [{'maths': (8, 6)}, {'lang': (3, 4)}], \n",
+        "\"Jared\": [{'maths': (6, 1)}, {'lang': (1, 3)}], \n",
+        "\"Lori\": [{'maths': (6, 1)}, {'lang': (10, 10)}], \n",
+        "\"Kristopher\": [{'maths': (1, 2)}, {'lang': (4, 9)}], \n",
+        "\"Jeanne\": [{'maths': (1, 1)}, {'lang': (1, 4)}], \n",
+        "\"Maximilian\": [{'maths': (3, 3)}, {'lang': (10, 9)}], \n",
+        "\"Merrily\": [{'maths': (5, 7)}, {'lang': (1, 3)}], \n",
+        "\"Skipton\": [{'maths': (9, 6)}, {'lang': (4, 9)}], \n",
+        "\"Tom\": [{'maths': (10, 5)}, {'lang': (1, 7)}], \n",
+        "\"Cirilo\": [{'maths': (2, 2)}, {'lang': (6, 6)}], \n",
+        "\"Warde\": [{'maths': (8, 7)}, {'lang': (9, 5)}], \n",
+        "\"Woodie\": [{'maths': (10, 3)}, {'lang': (2, 1)}], \n",
+        "\"Odetta\": [{'maths': (3, 7)}, {'lang': (7, 9)}], \n",
+        "\"Cordelie\": [{'maths': (2, 3)}, {'lang': (9, 1)}], \n",
+        "\"Wilow\": [{'maths': (10, 8)}, {'lang': (2, 6)}], \n",
+        "\"Charissa\": [{'maths': (5, 3)}, {'lang': (5, 10)}], \n",
+        "\"Ralina\": [{'maths': (10, 9)}, {'lang': (8, 2)}], \n",
+        "\"Charisse\": [{'maths': (6, 5)}, {'lang': (1, 9)}], \n",
+        "\"Huntley\": [{'maths': (8, 7)}, {'lang': (10, 3)}], \n",
+        "\"Ella\": [{'maths': (4, 3)}, {'lang': (6, 8)}], \n",
+        "\"Nelli\": [{'maths': (2, 6)}, {'lang': (5, 10)}], \n",
+        "\"Gearalt\": [{'maths': (4, 9)}, {'lang': (4, 4)}], \n",
+        "\"Zahara\": [{'maths': (2, 1)}, {'lang': (1, 4)}], \n",
+        "\"Dilan\": [{'maths': (8, 6)}, {'lang': (7, 6)}], \n",
+        "\"Frederique\": [{'maths': (5, 10)}, {'lang': (2, 8)}], \n",
+        "\"Saba\": [{'maths': (9, 8)}, {'lang': (9, 9)}], \n",
+        "\"Natalya\": [{'maths': (1, 5)}, {'lang': (5, 2)}], \n",
+        "\"Myrah\": [{'maths': (3, 8)}, {'lang': (3, 5)}], \n",
+        "\"Magnum\": [{'maths': (7, 1)}, {'lang': (2, 9)}], \n",
+        "\"Grace\": [{'maths': (9, 4)}, {'lang': (6, 6)}], \n",
+        "\"Ilysa\": [{'maths': (10, 9)}, {'lang': (8, 8)}], \n",
+        "\"Clerkclaude\": [{'maths': (7, 2)}, {'lang': (10, 2)}], \n",
+        "\"Yetty\": [{'maths': (8, 6)}, {'lang': (2, 4)}], \n",
+        "\"Cassandre\": [{'maths': (6, 1)}, {'lang': (9, 5)}], \n",
+        "\"Olympie\": [{'maths': (3, 3)}, {'lang': (10, 3)}], \n",
+        "\"Joshuah\": [{'maths': (7, 7)}, {'lang': (9, 2)}], \n",
+        "\"Kristine\": [{'maths': (3, 4)}, {'lang': (7, 7)}], \n",
+        "\"Dean\": [{'maths': (8, 6)}, {'lang': (10, 10)}], \n",
+        "\"Ilyssa\": [{'maths': (9, 7)}, {'lang': (5, 3)}], \n",
+        "\"Nannie\": [{'maths': (6, 9)}, {'lang': (2, 10)}], \n",
+        "\"Feodor\": [{'maths': (5, 6)}, {'lang': (3, 7)}], \n",
+        "\"Guglielma\": [{'maths': (10, 3)}, {'lang': (9, 6)}], \n",
+        "\"Alla\": [{'maths': (9, 10)}, {'lang': (7, 7)}], \n",
+        "\"Rowland\": [{'maths': (4, 10)}, {'lang': (8, 7)}], \n",
+        "\"Miquela\": [{'maths': (7, 5)}, {'lang': (2, 7)}], \n",
+        "\"Sapphira\": [{'maths': (4, 6)}, {'lang': (5, 2)}], \n",
+        "\"Zorina\": [{'maths': (3, 2)}, {'lang': (4, 9)}], \n",
+        "\"Rosemonde\": [{'maths': (10, 6)}, {'lang': (9, 9)}], \n",
+        "\"Alisa\": [{'maths': (1, 4)}, {'lang': (9, 5)}], \n",
+        "\"Ginger\": [{'maths': (3, 4)}, {'lang': (1, 2)}], \n",
+        "\"Karlis\": [{'maths': (9, 8)}, {'lang': (3, 1)}], \n",
+        "\"Robbin\": [{'maths': (7, 5)}, {'lang': (10, 8)}], \n",
+        "\"Kimberly\": [{'maths': (3, 7)}, {'lang': (8, 1)}], \n",
+        "\"Udale\": [{'maths': (7, 1)}, {'lang': (1, 7)}], \n",
+        "\"Isidor\": [{'maths': (8, 2)}, {'lang': (6, 3)}], \n",
+        "\"Farlee\": [{'maths': (5, 10)}, {'lang': (9, 9)}], \n",
+        "\"Katleen\": [{'maths': (8, 6)}, {'lang': (9, 3)}], \n",
+        "\"Nanine\": [{'maths': (5, 7)}, {'lang': (9, 9)}], \n",
+        "\"Marlow\": [{'maths': (2, 4)}, {'lang': (5, 2)}]\n",
+        "}"
+      ],
+      "outputs": [],
+      "execution_count": 9,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "copia_notas = dict(notas)\n",
+        "\n",
+        "lnotas = list(copia_notas.items())\n",
+        "subnotas = dict(lnotas[:3])\n",
+        "\n",
+        "for alumno, asignaturas in subnotas.items():\n",
+        "    print(alumno, asignaturas)\n",
+        "    for asignatura in asignaturas:\n",
+        "        print(asignatura)\n",
+        "        \n",
+        "        "
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "Sosanna [{'maths': (4, 3)}, {'lang': (5, 5)}]\n{'maths': (4, 3)}\n{'lang': (5, 5)}\nRosalind [{'maths': (8, 6)}, {'lang': (10, 5)}]\n{'maths': (8, 6)}\n{'lang': (10, 5)}\nGaspar [{'maths': (1, 6)}, {'lang': (7, 5)}]\n{'maths': (1, 6)}\n{'lang': (7, 5)}\n"
+        }
+      ],
+      "execution_count": 13,
+      "metadata": {}
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3 (ipykernel)",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.10.11"
+    },
+    "microsoft": {
+      "ms_spell_check": {
+        "ms_spell_check_language": "es"
+      }
+    },
+    "nteract": {
+      "version": "nteract-front-end@1.0.0"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 2
+}
