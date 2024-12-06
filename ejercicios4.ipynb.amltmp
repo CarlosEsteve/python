@@ -255,32 +255,127 @@
         "}"
       ],
       "outputs": [],
-      "execution_count": 9,
+      "execution_count": 68,
       "metadata": {}
     },
     {
       "cell_type": "code",
       "source": [
-        "copia_notas = dict(notas)\n",
+        "# 1- Completar la nota media de cada alumno por asignatura.\n",
         "\n",
+        "copia_notas = dict(notas)\n",
         "lnotas = list(copia_notas.items())\n",
         "subnotas = dict(lnotas[:3])\n",
         "\n",
+        "# Mostrar la media de cada asignatura para cada alumno\n",
         "for alumno, asignaturas in subnotas.items():\n",
-        "    print(alumno, asignaturas)\n",
+        "    print(alumno)\n",
         "    for asignatura in asignaturas:\n",
         "        print(asignatura)\n",
+        "        for nombre_asignatura, notas_asignatura in asignatura.items():\n",
+        "            suma = sum(notas_asignatura) / len(notas_asignatura)\n",
+        "            print(nombre_asignatura, suma)\n",
+        "    print()  # Añadir una línea en blanco entre alumnos para mayor claridad\n",
+        "\n",
         "        \n",
-        "        "
+        "        \n"
       ],
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
-          "text": "Sosanna [{'maths': (4, 3)}, {'lang': (5, 5)}]\n{'maths': (4, 3)}\n{'lang': (5, 5)}\nRosalind [{'maths': (8, 6)}, {'lang': (10, 5)}]\n{'maths': (8, 6)}\n{'lang': (10, 5)}\nGaspar [{'maths': (1, 6)}, {'lang': (7, 5)}]\n{'maths': (1, 6)}\n{'lang': (7, 5)}\n"
+          "text": "Sosanna\n{'maths': (4, 3)}\nmaths 3.5\n{'lang': (5, 5)}\nlang 5.0\n\nRosalind\n{'maths': (8, 6)}\nmaths 7.0\n{'lang': (10, 5)}\nlang 7.5\n\nGaspar\n{'maths': (1, 6)}\nmaths 3.5\n{'lang': (7, 5)}\nlang 6.0\n\n"
         }
       ],
-      "execution_count": 13,
+      "execution_count": null,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 2- Obtener la media global por asignatura.\n",
+        "\n",
+        "copia_notas = dict(notas)\n",
+        "lnotas = list(copia_notas.items())\n",
+        "subnotas = dict(lnotas[:3])\n",
+        "\n",
+        "# Inicializar diccionarios para almacenar las sumas y los conteos de las notas\n",
+        "suma_notas = {'maths': 0, 'lang': 0}\n",
+        "conteo_notas = {'maths': 0, 'lang': 0}\n",
+        "\n",
+        "# Calcular la suma de las notas y el conteo de las notas por asignatura\n",
+        "for asignaturas in subnotas.values():\n",
+        "    for asignatura in asignaturas:\n",
+        "        for nombre_asignatura, notas_asignatura in asignatura.items():\n",
+        "            suma_notas[nombre_asignatura] += sum(notas_asignatura)\n",
+        "            conteo_notas[nombre_asignatura] += len(notas_asignatura)\n",
+        "\n",
+        "# Calcular la media global por asignatura\n",
+        "media_global = {asignatura: suma_notas[asignatura] / conteo_notas[asignatura] for asignatura in suma_notas}\n",
+        "\n",
+        "# Mostrar la media global por asignatura\n",
+        "print(\"Media global por asignatura:\")\n",
+        "for asignatura, media in media_global.items():\n",
+        "    print(f\"{asignatura}: {media}\")\n",
+        "\n"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "Media global por asignatura:\nmaths: 4.666666666666667\nlang: 6.166666666666667\n"
+        }
+      ],
+      "execution_count": 71,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 3- Obtener la media global por alumno.\n",
+        "\n",
+        "copia_notas = dict(notas)\n",
+        "lnotas = list(copia_notas.items())\n",
+        "subnotas = dict(lnotas[:3])"
+      ],
+      "outputs": [],
+      "execution_count": 72,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "lista_de_tuplas = [(1, 2), (3, 4), (5, 6)]\n",
+        "sumas = [sum(tupla) for tupla in lista_de_tuplas]\n",
+        "print(\"Las sumas de los elementos de cada tupla son:\", sumas)"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "Las sumas de los elementos de cada tupla son: [3, 7, 11]\n"
+        }
+      ],
+      "execution_count": 7,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "diccionario1 = {'a': 10, 'b': 20, 'c': 30}\n",
+        "diccionario2 = {'a': 5, 'b': 15, 'd': 25}\n",
+        "\n",
+        "diccionario_combinado = {k: diccionario1.get(k, 0) + diccionario2.get(k, 0) for k in set(diccionario1) | set(diccionario2)}\n",
+        "print(\"El diccionario combinado es:\", diccionario_combinado)"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "El diccionario combinado es: {'c': 30, 'a': 15, 'd': 25, 'b': 35}\n"
+        }
+      ],
+      "execution_count": 17,
       "metadata": {}
     }
   ],
