@@ -255,7 +255,7 @@
         "}"
       ],
       "outputs": [],
-      "execution_count": 68,
+      "execution_count": 17,
       "metadata": {}
     },
     {
@@ -273,8 +273,8 @@
         "    for asignatura in asignaturas:\n",
         "        print(asignatura)\n",
         "        for nombre_asignatura, notas_asignatura in asignatura.items():\n",
-        "            suma = sum(notas_asignatura) / len(notas_asignatura)\n",
-        "            print(nombre_asignatura, suma)\n",
+        "            media = sum(notas_asignatura) / len(notas_asignatura)\n",
+        "            print(nombre_asignatura, media)\n",
         "    print()  # Añadir una línea en blanco entre alumnos para mayor claridad\n",
         "\n",
         "        \n",
@@ -287,7 +287,7 @@
           "text": "Sosanna\n{'maths': (4, 3)}\nmaths 3.5\n{'lang': (5, 5)}\nlang 5.0\n\nRosalind\n{'maths': (8, 6)}\nmaths 7.0\n{'lang': (10, 5)}\nlang 7.5\n\nGaspar\n{'maths': (1, 6)}\nmaths 3.5\n{'lang': (7, 5)}\nlang 6.0\n\n"
         }
       ],
-      "execution_count": null,
+      "execution_count": 49,
       "metadata": {}
     },
     {
@@ -311,7 +311,7 @@
         "            conteo_notas[nombre_asignatura] += len(notas_asignatura)\n",
         "\n",
         "# Calcular la media global por asignatura\n",
-        "media_global = {asignatura: suma_notas[asignatura] / conteo_notas[asignatura] for asignatura in suma_notas}\n",
+        "media_global = {asignatura: round(suma_notas[asignatura] / conteo_notas[asignatura], 2) for asignatura in suma_notas}\n",
         "\n",
         "# Mostrar la media global por asignatura\n",
         "print(\"Media global por asignatura:\")\n",
@@ -323,10 +323,10 @@
         {
           "output_type": "stream",
           "name": "stdout",
-          "text": "Media global por asignatura:\nmaths: 4.666666666666667\nlang: 6.166666666666667\n"
+          "text": "Media global por asignatura:\nmaths: 4.67\nlang: 6.17\n"
         }
       ],
-      "execution_count": 71,
+      "execution_count": 11,
       "metadata": {}
     },
     {
@@ -336,10 +336,107 @@
         "\n",
         "copia_notas = dict(notas)\n",
         "lnotas = list(copia_notas.items())\n",
-        "subnotas = dict(lnotas[:3])"
+        "subnotas = dict(lnotas[:5])\n",
+        "\n",
+        "# Calcular la media global por alumno de manera simplificada\n",
+        "media_global_alumno = {}\n",
+        "\n",
+        "for alumno, asignaturas in subnotas.items():\n",
+        "    total_notas = 0\n",
+        "    total_asignaturas = 0\n",
+        "    for asignatura in asignaturas:\n",
+        "        for notas_asignatura in asignatura.values():\n",
+        "            total_notas += sum(notas_asignatura)\n",
+        "            total_asignaturas += len(notas_asignatura)\n",
+        "    media_global_alumno[alumno] = round(total_notas / total_asignaturas, 2)\n",
+        "\n",
+        "# Mostrar la media global por alumno\n",
+        "print(\"Media global por alumno:\")\n",
+        "for alumno, media in media_global_alumno.items():\n",
+        "    print(f\"{alumno}: {media}\")\n",
+        "\n"
       ],
-      "outputs": [],
-      "execution_count": 72,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "Media global por alumno:\nSosanna: 4.25\nRosalind: 7.25\nGaspar: 4.75\nHerve: 4.25\nJayme: 5.75\n"
+        }
+      ],
+      "execution_count": 36,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# \t4- Obtener la media global de todos los alumnos.\n",
+        "\n",
+        "copia_notas = dict(notas)\n",
+        "lnotas = list(copia_notas.items())\n",
+        "subnotas = dict(lnotas[:5])\n",
+        "\n",
+        "# Calcular la media global por alumno de manera simplificada\n",
+        "media_global_alumno = {}\n",
+        "\n",
+        "for alumno, asignaturas in subnotas.items():\n",
+        "    total_notas = 0\n",
+        "    total_asignaturas = 0\n",
+        "    for asignatura in asignaturas:\n",
+        "        for notas_asignatura in asignatura.values():\n",
+        "            total_notas += sum(notas_asignatura)\n",
+        "            total_asignaturas += len(notas_asignatura)\n",
+        "    media_global_alumno[alumno] = round(total_notas / total_asignaturas, 2)\n",
+        "\n",
+        "# Calcular la media global de todos los alumnos\n",
+        "total_media_global = sum(media_global_alumno.values()) / len(media_global_alumno)\n",
+        "\n",
+        "# Mostrar la media global de todos los alumnos\n",
+        "print(f\"\\nMedia global de todos los alumnos: {round(total_media_global, 2)}\")\n"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "\nMedia global de todos los alumnos: 5.25\n"
+        }
+      ],
+      "execution_count": 34,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 5- Obtener para un alumno determinado, la nota media.\n",
+        "\n",
+        "alumno_solicitado = input()\n",
+        "\n",
+        "media_global_alumno = {}\n",
+        "\n",
+        "for alumno, asignaturas in subnotas.items():\n",
+        "    total_notas = 0\n",
+        "    total_asignaturas = 0\n",
+        "    for asignatura in asignaturas:\n",
+        "        for notas_asignatura in asignatura.values():\n",
+        "            total_notas += sum(notas_asignatura)\n",
+        "            total_asignaturas += len(notas_asignatura)\n",
+        "    media_global_alumno[alumno] = round(total_notas / total_asignaturas, 2)\n",
+        "        \n",
+        "# Mostrar la media global del alumno solicitado\n",
+        "if alumno_solicitado in subnotas:\n",
+        "    print(\"Media global del alumno:\")\n",
+        "    print(alumno_solicitado, media_global_alumno[alumno_solicitado])\n",
+        "else:\n",
+        "    print(\"El alumno no está en la lista\")\n",
+        "\n"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "El alumno no está en la lista\n"
+        }
+      ],
+      "execution_count": 71,
       "metadata": {}
     },
     {
@@ -376,6 +473,37 @@
         }
       ],
       "execution_count": 17,
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "subnotas = {\n",
+        "    \"Sosanna\": [{'maths': (4, 3)}, {'lang': (5, 5)}], \n",
+        "    \"Rosalind\": [{'maths': (8, 6)}, {'lang': (10, 5)}], \n",
+        "    \"Gaspar\": [{'maths': (1, 6)}, {'lang': (7, 5)}], \n",
+        "    \"Herve\": [{'maths': (2, 5)}, {'lang': (8, 2)}], \n",
+        "    \"Jayme\": [{'maths': (5, 1)}, {'lang': (10, 7)}], \n",
+        "    \"Dasya\": [{'maths': (5, 3)}, {'lang': (8, 2)}]\n",
+        "}\n",
+        "\n",
+        "for alumno, asignaturas in subnotas.items():\n",
+        "    for asignatura in asignaturas:\n",
+        "        for notas_asignatura in asignatura.values():\n",
+        "            suma_1 = sum(notas_asignatura)\n",
+        "            media = suma_1 / len(notas_asignatura)\n",
+        "            print(media)\n",
+        "\n",
+        "\n"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "3.5\n5.0\n7.0\n7.5\n3.5\n6.0\n3.5\n5.0\n3.0\n8.5\n4.0\n5.0\n"
+        }
+      ],
+      "execution_count": 50,
       "metadata": {}
     }
   ],
